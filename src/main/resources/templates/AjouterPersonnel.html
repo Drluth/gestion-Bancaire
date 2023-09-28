@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Essaie 1 </title>
+</head>
+<body>
+<div class="container">
+    <h1 style="color: red"> Test pour retrouver un compte</h1>
+    <form class="col-5" th:action="@{/AffichePersonnel}" th:object="${Employer}" method="post">
+        <label><h6>Code de l'employer</h6></label>
+        <input type="text" class="form-control" th:field="*{Code_employer}">
+        <label><h6>Nom de l'employer</h6></label>
+        <input type="text" class="form-control" th:field="*{Nom_employer}">
+        <label><h6>Prenom de l'employer</h6></label>
+        <input type="text" class="form-control" th:field="*{Prenom_employer}">
+        <label><h6>Mot de passe de l'employer</h6></label>
+        <input type="text" class="form-control" th:field="*{Password_employer}">
+<!--        <label><h6>Role de l'employer</h6></label>-->
+<!--        <input type="text" class="form-control" th:field="*{Role_employer}">-->
+        <button type="submit"  th:href="@{/creation}" class="btn btn-success">Ajouter</button>
+    </form>
+
+
+
+
+
+
+    <div class="alert alert-primary text-center text-uppercase fw-bold">
+        Liste des Clients
+    </div>
+
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+        <tr>
+            <th>Code de l'employer</th>
+            <th>Nom de l'employer</th>
+            <th>Prenom de l'employer</th>
+            <th>Mont de passe de l'employer</th>
+<!--            <th>Role_employer</th>-->
+            <!--            <th>Actions</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="Employer : ${ListeEmployer}">
+            <td th:text="${Employer.Code_employer}"></td>
+            <td th:text="${Employer.Nom_employer}"></td>
+            <td th:text="${Employer.Prenom_employer}"></td>
+            <td th:text="${Employer.Password_employer}"></td>
+<!--            <td th:text="${Employer.Role_employer}"></td>-->
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

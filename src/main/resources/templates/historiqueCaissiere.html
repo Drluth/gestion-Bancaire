@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <title>Essaie 1 </title>
+</head>
+<body>
+<div class="container">
+  <h1 style="color: red"> Test pour retrouver l'historique</h1>
+
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+      <th>Code de l'operation</th>
+      <th>Montant</th>
+      <th>Type de l'operation</th>
+      <th>Date de l'operation</th>
+      <th>Numero de compte</th>
+      <th>Nom du client</th>
+      <!--            <th>Role_employer</th>-->
+      <!--            <th>Actions</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Operation : ${List_operation}">
+      <td th:text="${Operation.Code_operation}"></td>
+      <td th:text="${Operation.montant}"></td>
+      <td th:text="${Operation.Des_operation}"></td>
+      <td th:text="${Operation.date_Naissance}"></td>
+      <td th:text="${Operation.Id_compte}"></td>
+      <td th:text="${Operation.Nom_client}"></td>
+      <!--            <td th:text="${Employer.Role_employer}"></td>-->
+      <td>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>

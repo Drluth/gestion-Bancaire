@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <title>Essaie 1 </title>
+</head>
+<body>
+<div class="container">
+  <h1 style="color: red"> Test pour ajouter un Client</h1>
+  <form>
+        <form class="col-5" th:action="@{/AjouterClient}" th:object="${Client}"method="post">
+          <label><h6>Code du Client</h6></label>
+          <input type="text" class="form-control" th:field="*{code_Client}">
+          <label><h6>Nom du Client</h6></label>
+          <input type="text" class="form-control" th:field="*{nom_Client}">
+          <label><h6>Prenom du Client</h6></label>
+          <input type="text" class="form-control" th:field="*{Prenom_Client}">
+          <label><h6>Numero de telephone du Client</h6></label>
+          <input type="text" class="form-control" th:field="*{Num_tel}">
+        </form>
+
+        <form class="col-5" th:action="@{/AjouterClient}" th:object="${Compte}"method="post">
+          <h1 style="color: red"> Test pour ajouter Compte</h1>
+          <label><h6>Numero du compte Client</h6></label>
+          <input type="text" class="form-control"th:field="*{Num_compte}">
+          <label><h6>Solde du compte Client</h6></label>
+          <input type="text" class="form-control"th:field="*{Solde}">
+          <label><h6>Type de compte du compte Client</h6></label>
+          <input type="text" class="form-control"th:field="*{type_compte}">
+          <label><h6>decouvert du compte Client</h6></label>
+          <input type="text" class="form-control"th:field="*{decouvert}">
+          <label><h6>Taux d'interet du compte Client</h6></label>
+          <input type="text" class="form-control"th:field="*{Taux_interet}">
+          <label><h6>code du compte Client</h6></label>
+          <input type="text" class="form-control"th:field="*{Id_client}">
+        </form>
+        <button type="submit"  th:href="@{/AjouterClient}" class="btn btn-success">Ajouter</button>
+  </form>
+
+  <div class="alert alert-primary text-center text-uppercase fw-bold">
+    Liste des Clients
+  </div>
+
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+      <th>Code du Client</th>
+      <th>Nom du Client</th>
+      <th>Prenom du Client</th>
+      <th>Numero de telephone du Client</th>
+      <th>Numero du compte Client</th>
+      <th>Solde du compte Client</th>
+      <th>Type de compte du compte Client</th>
+      <th>decouvert du compte Client</th>
+      <th>Taux d'interet du compte Client</th>
+      <th>code du compte Client</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Client : ${ListeClient}" >
+      <td th:text="${Client.code_Client}"></td>
+      <td th:text="${Client.nom_Client}"></td>
+      <td th:text="${Client.Prenom_Client}"></td>
+      <td th:text="${Client.Num_tel}"></td>
+
+      <td th:each="Compte : ${ListeCompte}" th:text="${Compte.Num_compte}"></td>
+      <td th:each="Compte : ${ListeCompte}" th:text="${Compte.Solde}"></td>
+      <td th:each="Compte : ${ListeCompte}" th:text="${Compte.type_compte}"></td>
+      <td th:each="Compte : ${ListeCompte}" th:text="${Compte.decouvert}"></td>
+      <td th:each="Compte : ${ListeCompte}" th:text="${Compte.Taux_interet}"></td>
+      <td th:each="Compte : ${ListeCompte}" th:text="${Compte.Id_client}"></td>
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>
